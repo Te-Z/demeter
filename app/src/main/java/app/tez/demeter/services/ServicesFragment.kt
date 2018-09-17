@@ -10,6 +10,7 @@ import android.view.animation.Animation
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.Toast
 import app.tez.demeter.R
 import app.tez.demeter.utils.ExpandAndCollapseViewUtil
 import kotlinx.android.synthetic.main.fragment_services.view.*
@@ -60,6 +61,12 @@ class ServicesFragment : Fragment() {
         laundryToolbar.title = getString(R.string.laundry)
         laundryToolbar.subtitle = getString(R.string.laundry)
 
+        laundryToolbar.inflateMenu(R.menu.services_menu)
+        laundryToolbar.menu.getItem(0).setOnMenuItemClickListener {
+            Toast.makeText(context, "Laundry", Toast.LENGTH_SHORT).show()
+            return@setOnMenuItemClickListener true
+        }
+
         // Animate the expand/collapse of the bottom
         laundryDetailLayout.setOnClickListener { this.toggleDetails(laundryDetails, laundryImageViewExpand) }
     }
@@ -73,6 +80,12 @@ class ServicesFragment : Fragment() {
         lockersToolbar.title = getString(R.string.lockers)
         lockersToolbar.subtitle = getString(R.string.lockers)
 
+        lockersToolbar.inflateMenu(R.menu.services_menu)
+        lockersToolbar.menu.getItem(0).setOnMenuItemClickListener{
+            Toast.makeText(context, "Lockers", Toast.LENGTH_SHORT).show()
+            return@setOnMenuItemClickListener true
+        }
+
         // Animate the expand/collapse of the bottom
         lockersDetailLayout.setOnClickListener { this.toggleDetails(lockersDetails, lockersImageViewExpand) }
     }
@@ -85,6 +98,12 @@ class ServicesFragment : Fragment() {
         val donationsToolbar = rootView.donations_toolbar
         donationsToolbar.title = getString(R.string.donations)
         donationsToolbar.subtitle = getString(R.string.donations)
+
+        donationsToolbar.inflateMenu(R.menu.services_menu)
+        donationsToolbar.menu.getItem(0).setOnMenuItemClickListener {
+            Toast.makeText(context, "Donations", Toast.LENGTH_SHORT).show()
+            return@setOnMenuItemClickListener true
+        }
 
         // Animate the expand/collapse of the bottom
         donationsDetailLayout.setOnClickListener { this.toggleDetails(donationsDetails, donationsImageViewExpand) }
