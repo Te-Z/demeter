@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">demeter</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- SERVICES -->
+    <string name="laundry">Laverie</string>
+    <string name="laundry_users">Machines en cours</string>
+    <string name="donations">Dons</string>
+    <string name="donations_inventory">Dons en stock</string>
+    <string name="lockers">Casiers</string>
+    <string name="lockers_users">Casiers utilisés</string>
+</resources>

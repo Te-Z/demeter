@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".services.ServicesFragment">
+
+    <ScrollView
+        android:id="@+id/laundry_scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/lockers_scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.card.MaterialCardView
+            android:id="@+id/laundry_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="?attr/colorPrimaryDark"
+            app:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:id="@+id/laundry_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/laundry_toolbar"
+                    style="@style/Widget.Demeter.Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:subtitleTextColor="@color/colorControlActivated" />
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="12"/>
+                    
+                    <TextView
+                        android:layout_width=""
+                        android:layout_height="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/laundry_detail_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorAccent"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/laundry_users"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/laundry_imageViewExpand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Details"
+                        android:src="@drawable/ic_more" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/laundry_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/laundry_textViewInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TESTTESTTESTTEST TEEEEEEEEEEEEEEEEEEEEST ! Merci :)"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/lockers_scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@+id/donations_scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/laundry_scrollView">
+
+        <android.support.design.card.MaterialCardView
+            android:id="@+id/lockers_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="?attr/colorPrimaryDark"
+            app:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:id="@+id/lockers_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/lockers_toolbar"
+                    style="@style/Widget.Demeter.Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:subtitleTextColor="@color/colorControlActivated" />
+
+                <LinearLayout
+                    android:id="@+id/lockers_detail_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorAccent"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/lockers_users"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/lockers_imageViewExpand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Details"
+                        android:src="@drawable/ic_more" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/lockers_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/lockers_textViewInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TESTTESTTESTTEST TEEEEEEEEEEEEEEEEEEEEST ! Merci :)"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/donations_scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lockers_scrollView">
+
+        <android.support.design.card.MaterialCardView
+            android:id="@+id/donations_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="?attr/colorPrimaryDark"
+            app:cardCornerRadius="4dp">
+
+            <LinearLayout
+                android:id="@+id/donations_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/donations_toolbar"
+                    style="@style/Widget.Demeter.Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:subtitleTextColor="@color/colorControlActivated" />
+
+                <LinearLayout
+                    android:id="@+id/donations_detail_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorAccent"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/donations_inventory"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/donations_imageViewExpand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Details"
+                        android:src="@drawable/ic_more" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/donations_details"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/donations_textViewInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TESTTESTTESTTEST TEEEEEEEEEEEEEEEEEEEEST ! Merci :)"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.design.card.MaterialCardView>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
