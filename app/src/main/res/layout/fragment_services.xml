@@ -82,13 +82,10 @@
                         android:paddingLeft="8dp"
                         android:visibility="gone">
 
-                        <TextView
-                            android:id="@+id/laundry_textViewInfo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TESTTESTTESTTEST TEEEEEEEEEEEEEEEEEEEEST ! Merci :)"
-                            android:textColor="@android:color/black"
-                            android:textSize="16sp" />
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/laundry_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
                 </LinearLayout>
             </android.support.design.card.MaterialCardView>
@@ -163,13 +160,10 @@
                         android:paddingLeft="8dp"
                         android:visibility="gone">
 
-                        <TextView
-                            android:id="@+id/lockers_textViewInfo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TESTTESTTESTTEST TEEEEEEEEEEEEEEEEEEEEST ! Merci :)"
-                            android:textColor="@android:color/black"
-                            android:textSize="16sp" />
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/lockers_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
                 </LinearLayout>
             </android.support.design.card.MaterialCardView>
@@ -244,13 +238,10 @@
                         android:paddingLeft="8dp"
                         android:visibility="gone">
 
-                        <TextView
-                            android:id="@+id/donations_textViewInfo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TESTTESTTESTTEST TEEEEEEEEEEEEEEEEEEEEST ! Merci :)"
-                            android:textColor="@android:color/black"
-                            android:textSize="16sp" />
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/donations_rv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
                     </LinearLayout>
                 </LinearLayout>
             </android.support.design.card.MaterialCardView>

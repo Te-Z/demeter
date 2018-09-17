@@ -3,6 +3,8 @@ package app.tez.demeter.services
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +13,9 @@ import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
+import app.tez.demeter.FakeUsers
 import app.tez.demeter.R
+import app.tez.demeter.models.Recipient
 import app.tez.demeter.utils.ExpandAndCollapseViewUtil
 import kotlinx.android.synthetic.main.fragment_services.view.*
 
@@ -26,24 +30,40 @@ class ServicesFragment : Fragment() {
         private val DURATION = 250
     }
 
+    // DATA
+    private var testList = mutableListOf<Recipient>()
+
     private lateinit var rootView: View
     private lateinit var laundryDetails: LinearLayout
     private lateinit var laundryImageViewExpand: ImageView
     private lateinit var laundryDetailLayout: LinearLayout
+    private lateinit var laundryRecyclerView: RecyclerView
+    private lateinit var laundryAdapter: SimpleServicesAdapter
+
     private lateinit var lockersDetails: LinearLayout
     private lateinit var lockersImageViewExpand: ImageView
     private lateinit var lockersDetailLayout: LinearLayout
+    private lateinit var lockersRecyclerView: RecyclerView
+    private lateinit var lockersAdapter: SimpleServicesAdapter
+
     private lateinit var donationsDetails: LinearLayout
     private lateinit var donationsImageViewExpand: ImageView
     private lateinit var donationsDetailLayout: LinearLayout
+    private lateinit var donationsRecyclerView: RecyclerView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_services, container, false)
 
+        //TODO: remove testList
+        FakeUsers.setTestList(testList)
+
         this.configureLaundryCardView()
+        this.configureLaundryRecyclerView()
         this.configureLockersCardView()
+        this.configureLockersRecyclerView()
         this.configureDonationsCardView()
+        this.configureDonationsRecyclerView()
         // Inflate the layout for this fragment
         return rootView
     }
@@ -71,6 +91,15 @@ class ServicesFragment : Fragment() {
         laundryDetailLayout.setOnClickListener { this.toggleDetails(laundryDetails, laundryImageViewExpand) }
     }
 
+    private fun configureLaundryRecyclerView(){
+        this.laundryAdapter = SimpleServicesAdapter(testList)
+        val laundryLayoutManager = LinearLayoutManager(context)
+        laundryRecyclerView = rootView.laundry_rv.apply {
+            adapter = laundryAdapter
+            layoutManager = laundryLayoutManager
+        }
+    }
+
     private fun configureLockersCardView(){
         lockersDetails = rootView.lockers_details
         lockersImageViewExpand = rootView.lockers_imageViewExpand
@@ -90,6 +119,15 @@ class ServicesFragment : Fragment() {
         lockersDetailLayout.setOnClickListener { this.toggleDetails(lockersDetails, lockersImageViewExpand) }
     }
 
+    private fun configureLockersRecyclerView(){
+        this.lockersAdapter = SimpleServicesAdapter(testList)
+        val lockersLayoutManager = LinearLayoutManager(context)
+        lockersRecyclerView = rootView.lockers_rv.apply {
+            adapter = lockersAdapter
+            layoutManager = lockersLayoutManager
+        }
+    }
+
     private fun configureDonationsCardView(){
         donationsDetails = rootView.donations_details
         donationsImageViewExpand = rootView.donations_imageViewExpand
@@ -107,6 +145,10 @@ class ServicesFragment : Fragment() {
 
         // Animate the expand/collapse of the bottom
         donationsDetailLayout.setOnClickListener { this.toggleDetails(donationsDetails, donationsImageViewExpand) }
+    }
+
+    private fun configureDonationsRecyclerView(){
+
     }
 
     // -------------

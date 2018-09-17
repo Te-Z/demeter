@@ -14,9 +14,9 @@ import kotlinx.android.synthetic.main.fragment_list_item.view.*
  */
 class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    private var mood = itemView.fragment_list_item_mood
-    private var picture = itemView.fragment_list_item_pic
-    private var username = itemView.fragment_list_item_name
+    private val mood = itemView.fragment_list_item_mood
+    private val picture = itemView.fragment_list_item_pic
+    private val username = itemView.fragment_list_item_name
 
     fun updateItem(recipient: Recipient, glide: RequestManager, context: Context){
 
@@ -36,6 +36,7 @@ class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             glide.load(context.resources.getDrawable(R.drawable.default_avatar)).apply(RequestOptions().circleCrop()).into(picture)
         }
 
-        username.text = "${recipient.firstName} ${recipient.lastName.toUpperCase()}"
+        val name = "${recipient.firstName} ${recipient.lastName.toUpperCase()}"
+        username.text = name
     }
 }
