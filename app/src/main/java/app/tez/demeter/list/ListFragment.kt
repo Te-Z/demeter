@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import app.tez.demeter.FakeUsers
+import app.tez.demeter.Fake
 import app.tez.demeter.R
 import app.tez.demeter.models.Recipient
 import com.bumptech.glide.Glide
@@ -35,7 +35,7 @@ class ListFragment : Fragment() {
         //TODO: remove testList
 
         rootView = inflater.inflate(R.layout.fragment_list, container, false)
-        FakeUsers.setTestList(testList)
+        Fake.userList(testList)
         this.configureRecyclerView()
         // Inflate the layout for this fragment
         return rootView

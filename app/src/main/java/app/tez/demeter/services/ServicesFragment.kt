@@ -13,8 +13,9 @@ import android.view.animation.RotateAnimation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
-import app.tez.demeter.FakeUsers
+import app.tez.demeter.Fake
 import app.tez.demeter.R
+import app.tez.demeter.models.DonationItem
 import app.tez.demeter.models.Recipient
 import app.tez.demeter.utils.ExpandAndCollapseViewUtil
 import kotlinx.android.synthetic.main.fragment_services.view.*
@@ -31,8 +32,10 @@ class ServicesFragment : Fragment() {
     }
 
     // DATA
-    private var testList = mutableListOf<Recipient>()
+    private var userTestList = mutableListOf<Recipient>()
+    private var itemTestList = mutableListOf<DonationItem>()
 
+    // DESIGN
     private lateinit var rootView: View
     private lateinit var laundryDetails: LinearLayout
     private lateinit var laundryImageViewExpand: ImageView
@@ -50,13 +53,15 @@ class ServicesFragment : Fragment() {
     private lateinit var donationsImageViewExpand: ImageView
     private lateinit var donationsDetailLayout: LinearLayout
     private lateinit var donationsRecyclerView: RecyclerView
+    private lateinit var donationsAdapter: DonationsAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         rootView = inflater.inflate(R.layout.fragment_services, container, false)
 
-        //TODO: remove testList
-        FakeUsers.setTestList(testList)
+        //TODO: remove testLists
+        Fake.userList(userTestList)
+        context?.let { Fake.donationItemList(itemTestList, it) }
 
         this.configureLaundryCardView()
         this.configureLaundryRecyclerView()
@@ -92,7 +97,7 @@ class ServicesFragment : Fragment() {
     }
 
     private fun configureLaundryRecyclerView(){
-        this.laundryAdapter = SimpleServicesAdapter(testList)
+        this.laundryAdapter = SimpleServicesAdapter(userTestList)
         val laundryLayoutManager = LinearLayoutManager(context)
         laundryRecyclerView = rootView.laundry_rv.apply {
             adapter = laundryAdapter
@@ -120,7 +125,7 @@ class ServicesFragment : Fragment() {
     }
 
     private fun configureLockersRecyclerView(){
-        this.lockersAdapter = SimpleServicesAdapter(testList)
+        this.lockersAdapter = SimpleServicesAdapter(userTestList)
         val lockersLayoutManager = LinearLayoutManager(context)
         lockersRecyclerView = rootView.lockers_rv.apply {
             adapter = lockersAdapter
@@ -148,7 +153,12 @@ class ServicesFragment : Fragment() {
     }
 
     private fun configureDonationsRecyclerView(){
-
+        this.donationsAdapter = DonationsAdapter(itemTestList)
+        val donationsLayoutManager = LinearLayoutManager(context)
+        donationsRecyclerView = rootView.donations_rv.apply {
+            adapter = donationsAdapter
+            layoutManager = donationsLayoutManager
+        }
     }
 
     // -------------

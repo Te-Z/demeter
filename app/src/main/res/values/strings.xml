@@ -12,4 +12,21 @@
     <string name="lockers">Casiers</string>
     <string name="lockers_users">Casiers utilisés</string>
     <string name="add_services">+ 1</string>
+
+    <!-- ITEMS -->
+    <string name="dnts_dental_kit">Kit dentaire</string>
+    <string name="dnts_shaving_kit">Kit de rasage</string>
+    <string name="dnts_cap">Bonnets</string>
+    <string name="dnts_belt">Ceinture</string>
+    <string name="dnts_shoes">Chaussures</string>
+    <string name="dnts_socks">Chaussettes</string>
+    <string name="dnts_scarf">Echarpe</string>
+    <string name="dnts_gloves">Gants</string>
+    <string name="dnts_coat">Manteau</string>
+    <string name="dnts_trousers">Pantalon</string>
+    <string name="dnts_pullover">Pull</string>
+    <string name="dnts_underpants">Underpants</string>
+    <string name="dnts_tshirt">T-Shirt</string>
+    <string name="dnts_suitcase">Valise</string>
+    <string name="dnts_pet_shop">Animalerie</string>
 </resources>
