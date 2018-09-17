@@ -2,9 +2,12 @@ package app.tez.demeter.services
 
 
 import android.os.Bundle
+import android.support.v4.app.DialogFragment
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentTransaction
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +20,8 @@ import app.tez.demeter.Fake
 import app.tez.demeter.R
 import app.tez.demeter.models.DonationItem
 import app.tez.demeter.models.Recipient
+import app.tez.demeter.services.recyclerview.DonationsAdapter
+import app.tez.demeter.services.recyclerview.SimpleServicesAdapter
 import app.tez.demeter.utils.ExpandAndCollapseViewUtil
 import kotlinx.android.synthetic.main.fragment_services.view.*
 
@@ -29,6 +34,7 @@ class ServicesFragment : Fragment() {
     companion object {
         fun newInstance(): ServicesFragment = ServicesFragment()
         private val DURATION = 250
+        private val TAG = "ServicesFragment"
     }
 
     // DATA
@@ -88,7 +94,7 @@ class ServicesFragment : Fragment() {
 
         laundryToolbar.inflateMenu(R.menu.services_menu)
         laundryToolbar.menu.getItem(0).setOnMenuItemClickListener {
-            Toast.makeText(context, "Laundry", Toast.LENGTH_SHORT).show()
+            this.showDialog()
             return@setOnMenuItemClickListener true
         }
 
@@ -102,6 +108,17 @@ class ServicesFragment : Fragment() {
         laundryRecyclerView = rootView.laundry_rv.apply {
             adapter = laundryAdapter
             layoutManager = laundryLayoutManager
+        }
+    }
+
+    private fun showDialog(){
+        Log.d(TAG, "showDialog: click")
+        val dialog = AddLaundryFragment()
+        fragmentManager?.let {
+            val ft = it.beginTransaction()
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            dialog.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.Theme_Demeter)
+            dialog.show(ft, AddLaundryFragment.TAG)
         }
     }
 
