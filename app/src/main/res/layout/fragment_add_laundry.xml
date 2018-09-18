@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".services.AddLaundryFragment">
+    tools:context=".services.dialog.AddLaundryFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -66,36 +66,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chipgroup"
+    <HorizontalScrollView
+        android:id="@+id/horizontal_sv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner">
 
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/laundry_chipgroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1" />
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="2" />
-
-        <com.google.android.material.chip.Chip
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3" />
-    </com.google.android.material.chip.ChipGroup>
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:singleSelection="true"
+            app:singleLine="true"/>
+    </HorizontalScrollView>
 
     <Button
         android:id="@+id/button"
@@ -107,5 +96,5 @@
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipgroup" />
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_sv" />
 </androidx.constraintlayout.widget.ConstraintLayout>

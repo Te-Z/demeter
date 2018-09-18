@@ -20,6 +20,7 @@ import app.tez.demeter.Fake
 import app.tez.demeter.R
 import app.tez.demeter.models.DonationItem
 import app.tez.demeter.models.Recipient
+import app.tez.demeter.services.dialog.AddLaundryFragment
 import app.tez.demeter.services.recyclerview.DonationsAdapter
 import app.tez.demeter.services.recyclerview.SimpleServicesAdapter
 import app.tez.demeter.utils.ExpandAndCollapseViewUtil
