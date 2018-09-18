@@ -1,6 +1,6 @@
 package app.tez.demeter.services.recyclerview
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import app.tez.demeter.R

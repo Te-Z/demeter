@@ -1,6 +1,6 @@
 package app.tez.demeter.services.recyclerview
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import app.tez.demeter.models.Recipient
 import kotlinx.android.synthetic.main.simple_services_item.view.*

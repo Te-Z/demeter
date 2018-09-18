@@ -1,7 +1,7 @@
 package app.tez.demeter.list
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import app.tez.demeter.R
 import app.tez.demeter.models.Recipient

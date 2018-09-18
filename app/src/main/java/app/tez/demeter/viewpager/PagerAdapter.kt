@@ -1,8 +1,8 @@
 package app.tez.demeter.viewpager
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import app.tez.demeter.list.ListFragment
 import app.tez.demeter.services.ServicesFragment
 import app.tez.demeter.StatsFragment
