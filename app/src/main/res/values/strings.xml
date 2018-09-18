@@ -7,11 +7,15 @@
     <!-- SERVICES -->
     <string name="laundry">Laverie</string>
     <string name="laundry_users">Machines en cours</string>
+    <string name="laundry_item">Que souhaitez-vous ajouter ?</string>
+    <string name="laundry_item_add">Ajouter</string>
+    <string name="laundry_item_quantity">En quelle quantité ?</string>
     <string name="donations">Dons</string>
     <string name="donations_inventory">Dons en stock</string>
     <string name="lockers">Casiers</string>
     <string name="lockers_users">Casiers utilisés</string>
     <string name="add_services">+ 1</string>
+    <string name="submit_service">C\'est parti !</string>
 
     <!-- ITEMS -->
     <string name="dnts_dental_kit">Kit dentaire</string>
@@ -29,6 +33,23 @@
     <string name="dnts_tshirt">T-Shirt</string>
     <string name="dnts_suitcase">Valise</string>
     <string name="dnts_pet_shop">Animalerie</string>
+    <string-array name="donations_array">
+        <item>Kit dentaire</item>
+        <item>Kit de rasage</item>
+        <item>Bonnets</item>
+        <item>Ceinture</item>
+        <item>Chaussures</item>
+        <item>Chaussettes</item>
+        <item>Echarpe</item>
+        <item>Gants</item>
+        <item>Manteau</item>
+        <item>Pantalon</item>
+        <item>Pull</item>
+        <item>Underpants</item>
+        <item>T-Shirt</item>
+        <item>Valise</item>
+        <item>Animalerie</item>
+    </string-array>
 
     <!-- LAUNDRY -->
     <string name="laundry_person_label">Pour quelle personne ?</string>
