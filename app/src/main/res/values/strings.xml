@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">demeter</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- UTILS -->
+    <string name="remove">Effacer</string>
+    <string name="colon" translatable="false">:</string>
 
     <!-- SERVICES -->
     <string name="laundry">Laverie</string>
@@ -29,7 +32,7 @@
     <string name="dnts_coat">Manteau</string>
     <string name="dnts_trousers">Pantalon</string>
     <string name="dnts_pullover">Pull</string>
-    <string name="dnts_underpants">Underpants</string>
+    <string name="dnts_underpants">Slip</string>
     <string name="dnts_tshirt">T-Shirt</string>
     <string name="dnts_suitcase">Valise</string>
     <string name="dnts_pet_shop">Animalerie</string>
@@ -45,7 +48,7 @@
         <item>Manteau</item>
         <item>Pantalon</item>
         <item>Pull</item>
-        <item>Underpants</item>
+        <item>Slip</item>
         <item>T-Shirt</item>
         <item>Valise</item>
         <item>Animalerie</item>

@@ -1,22 +1,27 @@
 package app.tez.demeter.services.dialog
 
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.ListAdapter
+import android.widget.Button
 import android.widget.Spinner
 import androidx.fragment.app.DialogFragment
 import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import app.tez.demeter.Fake
 
 import app.tez.demeter.R
+import app.tez.demeter.models.DonationItem
 import app.tez.demeter.models.Recipient
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.fragment_add_laundry.view.*
+import kotlinx.android.synthetic.main.fragment_services.view.*
 
 class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , AdapterView.OnItemSelectedListener {
 
@@ -32,10 +37,14 @@ class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , 
     private lateinit var itemSpinner: Spinner
     private lateinit var personArrayAdapter: ArrayAdapter<String>
     private lateinit var itemArrayAdapter: ArrayAdapter<CharSequence>
+    private lateinit var recyclerViewAdapter: LaundryAdapter
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var addBtn:Button
 
     // DATA
     private lateinit var selectedItem: String
     private lateinit var selectedPerson: String
+    private var itemList = mutableListOf<DonationItem>()
 
     // For test
     private var userList = mutableListOf<Recipient>()
@@ -59,6 +68,7 @@ class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , 
         this.configurePersonSpinner(personList)
         this.configureItemSpinner()
         this.configureRecyclerview()
+        this.configureAddItemButton()
 
         return rootView
     }
@@ -74,18 +84,30 @@ class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , 
     }
 
     // -----------------
+    // ACTIONS
+    // -----------------
+
+    private fun configureAddItemButton(){
+        this.addBtn = rootView.laundry_add_item
+        this.addBtn.isClickable = false
+    }
+
+    // -----------------
     // UI
     // -----------------
 
     private fun configureToolbar(){
-        this.toolbar = rootView.laundry_toolbar
+        this.toolbar = rootView.laundry_dialog_toolbar
         this.toolbar.setOnClickListener{ dialog.dismiss() }
         this.toolbar.title = getString(R.string.laundry)
         this.toolbar.menu
     }
 
     private fun configureRecyclerview(){
-
+        this.recyclerViewAdapter = LaundryAdapter(itemList)
+        this.recyclerView = rootView.add_laundry_recyclerview
+        this.recyclerView.adapter = this.recyclerViewAdapter
+        this.recyclerView.layoutManager = LinearLayoutManager(context)
     }
 
     private fun configurePersonSpinner(username: List<String>){
@@ -135,7 +157,19 @@ class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , 
         chipGroup.setOnCheckedChangeListener(this)
     }
 
+    @SuppressLint("ResourceType")
     override fun onCheckedChanged(chipGroup: ChipGroup?, position: Int) {
         Log.d(TAG, "onCheckedChanged: $position")
+        if(position > 0){
+            this.addBtn.isClickable = true
+            this.addBtn.setOnClickListener {
+                val item = DonationItem(selectedItem, position)
+                itemList.add(item)
+                recyclerViewAdapter.notifyDataSetChanged()
+            }
+        } else {
+            this.addBtn.isClickable = false
+            this.addBtn.setOnClickListener { }
+        }
     }
 }
