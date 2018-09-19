@@ -78,11 +78,6 @@ class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , 
         dialog.window?.let { it.attributes.windowAnimations = R.style.DialogAnimation }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        inflater?.inflate(R.menu.services_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
     // -----------------
     // ACTIONS
     // -----------------
@@ -98,9 +93,13 @@ class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , 
 
     private fun configureToolbar(){
         this.toolbar = rootView.laundry_dialog_toolbar
-        this.toolbar.setOnClickListener{ dialog.dismiss() }
+        this.toolbar.setNavigationOnClickListener{ dialog.dismiss() }
         this.toolbar.title = getString(R.string.laundry)
-        this.toolbar.menu
+        this.toolbar.inflateMenu(R.menu.laundry_menu)
+        this.toolbar.menu.getItem(0).setOnMenuItemClickListener {
+            Log.d(TAG, "configureToolbar: click !")
+            return@setOnMenuItemClickListener true
+        }
     }
 
     private fun configureRecyclerview(){
