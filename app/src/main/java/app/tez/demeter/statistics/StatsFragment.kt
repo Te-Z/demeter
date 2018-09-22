@@ -1,4 +1,4 @@
-package app.tez.demeter
+package app.tez.demeter.statistics
 
 
 import android.os.Bundle
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import app.tez.demeter.R
 
 /**
  * A simple [Fragment] subclass.
@@ -14,7 +15,7 @@ import android.view.ViewGroup
 class StatsFragment : Fragment() {
 
     companion object {
-        fun newInstance():StatsFragment = StatsFragment()
+        fun newInstance(): StatsFragment = StatsFragment()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

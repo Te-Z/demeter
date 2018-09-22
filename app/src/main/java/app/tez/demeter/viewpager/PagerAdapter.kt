@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import app.tez.demeter.list.ListFragment
 import app.tez.demeter.services.ServicesFragment
-import app.tez.demeter.StatsFragment
+import app.tez.demeter.statistics.StatsFragment
 
 /**
  * Created by Terence Zafindratafa on 11/09/2018

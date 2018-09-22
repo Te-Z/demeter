@@ -6,5 +6,6 @@ package app.tez.demeter.models
 data class Recipient (var firstName: String,
                       var lastName: String,
                       var dateOfBirth: String,
+                      var sexe: String,
                       var mood: Int,
                       var avatar: String?)

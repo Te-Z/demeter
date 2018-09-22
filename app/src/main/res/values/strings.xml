@@ -60,4 +60,16 @@
     <!-- DIALOGS -->
     <string name="positive_button">Ok</string>
     <string name="negative_button">Annuler</string>
+
+    <!-- STATS FRAGMENT -->
+    <string name="percent"> %</string>
+    <string name="stats_summary_label">Bilan de la soirée en cours:</string>
+    <string name="women_rate_label">de femmes</string>
+    <string name="mood_rate_label">de bonne humeur</string>
+    <string name="presence_rate_label">présents</string>
+    <string name="stats_spinner_label">Quelle données souhaitez-vous consulter ?</string>
+    <string name="stats_date_range_label">Sur quelle période ?</string>
+    <string name="stats_submit">Visualiser</string>
+    <string name="stats_date_range_begin">Début</string>
+    <string name="stats_date_range_end">Fin</string>
 </resources>
