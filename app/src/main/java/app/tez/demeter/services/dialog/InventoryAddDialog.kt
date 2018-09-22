@@ -20,13 +20,12 @@ import app.tez.demeter.models.DonationItem
 import app.tez.demeter.models.Recipient
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
-import kotlinx.android.synthetic.main.fragment_add_laundry.view.*
-import kotlinx.android.synthetic.main.fragment_services.view.*
+import kotlinx.android.synthetic.main.dialog_add_laundry.view.*
 
-class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , AdapterView.OnItemSelectedListener {
+class InventoryAddDialog: DialogFragment(), ChipGroup.OnCheckedChangeListener , AdapterView.OnItemSelectedListener {
 
     companion object {
-        const val TAG = "AddLaundryFragment"
+        const val TAG = "InventoryAddDialog"
     }
 
     // DESIGN
@@ -53,7 +52,7 @@ class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        this.rootView = inflater.inflate(R.layout.fragment_add_laundry, container, false)
+        this.rootView = inflater.inflate(R.layout.dialog_add_laundry, container, false)
 
         this.configureToolbar()
         this.configureChips()
@@ -61,7 +60,7 @@ class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , 
         // TODO: enlever les lignes de test
         Fake.userList(userList)
         for(recipient in userList){
-            val string = recipient.firstName + recipient.lastName
+            val string = recipient.firstName + " " + recipient.lastName
             personList.add(string)
         }
 
@@ -94,10 +93,10 @@ class AddLaundryFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , 
     private fun configureToolbar(){
         this.toolbar = rootView.laundry_dialog_toolbar
         this.toolbar.setNavigationOnClickListener{ dialog.dismiss() }
-        this.toolbar.title = getString(R.string.laundry)
         this.toolbar.inflateMenu(R.menu.laundry_menu)
         this.toolbar.menu.getItem(0).setOnMenuItemClickListener {
             Log.d(TAG, "configureToolbar: click !")
+            dialog.dismiss()
             return@setOnMenuItemClickListener true
         }
     }

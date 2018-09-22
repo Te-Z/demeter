@@ -20,11 +20,13 @@ import app.tez.demeter.Fake
 import app.tez.demeter.R
 import app.tez.demeter.models.DonationItem
 import app.tez.demeter.models.Recipient
-import app.tez.demeter.services.dialog.AddLaundryFragment
+import app.tez.demeter.services.dialog.InventoryAddDialog
+import app.tez.demeter.services.dialog.LockersDialog
 import app.tez.demeter.services.recyclerview.DonationsAdapter
 import app.tez.demeter.services.recyclerview.SimpleServicesAdapter
 import app.tez.demeter.utils.ExpandAndCollapseViewUtil
 import kotlinx.android.synthetic.main.fragment_services.view.*
+import java.util.concurrent.locks.Lock
 
 /**
  * A simple [Fragment] subclass.
@@ -95,7 +97,7 @@ class ServicesFragment : Fragment() {
 
         laundryToolbar.inflateMenu(R.menu.services_menu)
         laundryToolbar.menu.getItem(0).setOnMenuItemClickListener {
-            this.showDialog()
+            this.showInventoryDialog()
             return@setOnMenuItemClickListener true
         }
 
@@ -112,17 +114,6 @@ class ServicesFragment : Fragment() {
         }
     }
 
-    private fun showDialog(){
-        Log.d(TAG, "showDialog: click")
-        val dialog = AddLaundryFragment()
-        fragmentManager?.let {
-            val ft = it.beginTransaction()
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
-            dialog.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.Theme_Demeter)
-            dialog.show(ft, AddLaundryFragment.TAG)
-        }
-    }
-
     private fun configureLockersCardView(){
         lockersDetails = rootView.lockers_details
         lockersImageViewExpand = rootView.lockers_imageViewExpand
@@ -134,7 +125,7 @@ class ServicesFragment : Fragment() {
 
         lockersToolbar.inflateMenu(R.menu.services_menu)
         lockersToolbar.menu.getItem(0).setOnMenuItemClickListener{
-            Toast.makeText(context, "Lockers", Toast.LENGTH_SHORT).show()
+            this.showLockersDialog()
             return@setOnMenuItemClickListener true
         }
 
@@ -162,7 +153,7 @@ class ServicesFragment : Fragment() {
 
         donationsToolbar.inflateMenu(R.menu.services_menu)
         donationsToolbar.menu.getItem(0).setOnMenuItemClickListener {
-            Toast.makeText(context, "Donations", Toast.LENGTH_SHORT).show()
+            this.showInventoryDialog()
             return@setOnMenuItemClickListener true
         }
 
@@ -182,6 +173,27 @@ class ServicesFragment : Fragment() {
     // -------------
     // UI UTILS
     // -------------
+
+    private fun showInventoryDialog(){
+        Log.d(TAG, "showInventoryDialog: click !")
+        val dialog = InventoryAddDialog()
+        fragmentManager?.let {
+            val ft = it.beginTransaction()
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            dialog.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.Theme_Demeter)
+            dialog.show(ft, InventoryAddDialog.TAG)
+        }
+    }
+
+    private fun showLockersDialog(){
+        Log.d(TAG, "showLockersDialog: click !")
+        val dialog = LockersDialog()
+        fragmentManager?.let {
+            val ft = it.beginTransaction()
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            dialog.show(ft, LockersDialog.TAG)
+        }
+    }
 
     private fun toggleDetails(layout: LinearLayout, imageView: ImageView) {
         if (layout.visibility == View.GONE) {

@@ -56,4 +56,8 @@
 
     <!-- LAUNDRY -->
     <string name="laundry_person_label">Pour quelle personne ?</string>
+
+    <!-- DIALOGS -->
+    <string name="positive_button">Ok</string>
+    <string name="negative_button">Annuler</string>
 </resources>

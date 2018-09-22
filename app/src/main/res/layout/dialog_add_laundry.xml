@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".services.dialog.AddLaundryFragment">
+    tools:context=".services.dialog.InventoryAddDialog">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
