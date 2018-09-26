@@ -1,6 +1,7 @@
 package app.tez.demeter.services
 
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
@@ -13,9 +14,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.*
+import androidx.core.content.ContextCompat
+import androidx.core.widget.ImageViewCompat
 import app.tez.demeter.Fake
 import app.tez.demeter.R
 import app.tez.demeter.models.DonationItem
@@ -32,12 +33,14 @@ import java.util.concurrent.locks.Lock
  * A simple [Fragment] subclass.
  *
  */
+
+private const val DURATION = 250
+private const val TAG = "ServicesFragment"
+
 class ServicesFragment : Fragment() {
 
     companion object {
         fun newInstance(): ServicesFragment = ServicesFragment()
-        private val DURATION = 250
-        private val TAG = "ServicesFragment"
     }
 
     // DATA
@@ -51,18 +54,21 @@ class ServicesFragment : Fragment() {
     private lateinit var laundryDetailLayout: LinearLayout
     private lateinit var laundryRecyclerView: RecyclerView
     private lateinit var laundryAdapter: SimpleServicesAdapter
+    private lateinit var laundryDialogButton: ImageButton
 
     private lateinit var lockersDetails: LinearLayout
     private lateinit var lockersImageViewExpand: ImageView
     private lateinit var lockersDetailLayout: LinearLayout
     private lateinit var lockersRecyclerView: RecyclerView
     private lateinit var lockersAdapter: SimpleServicesAdapter
+    private lateinit var lockersDialogButton: ImageButton
 
     private lateinit var donationsDetails: LinearLayout
     private lateinit var donationsImageViewExpand: ImageView
     private lateinit var donationsDetailLayout: LinearLayout
     private lateinit var donationsRecyclerView: RecyclerView
     private lateinit var donationsAdapter: DonationsAdapter
+    private lateinit var donationsDialogButton: ImageButton
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -90,16 +96,8 @@ class ServicesFragment : Fragment() {
         laundryDetails = rootView.laundry_details
         laundryImageViewExpand = rootView.laundry_imageViewExpand
         laundryDetailLayout = rootView.laundry_detail_content
-
-        val laundryToolbar = rootView.laundry_toolbar
-        laundryToolbar.title = getString(R.string.laundry)
-        laundryToolbar.subtitle = getString(R.string.laundry)
-
-        laundryToolbar.inflateMenu(R.menu.services_menu)
-        laundryToolbar.menu.getItem(0).setOnMenuItemClickListener {
-            this.showInventoryDialog()
-            return@setOnMenuItemClickListener true
-        }
+        laundryDialogButton = rootView.laundry_card_btn
+        laundryDialogButton.setOnClickListener { this.showInventoryDialog() }
 
         // Animate the expand/collapse of the bottom
         laundryDetailLayout.setOnClickListener { this.toggleDetails(laundryDetails, laundryImageViewExpand) }
@@ -118,16 +116,8 @@ class ServicesFragment : Fragment() {
         lockersDetails = rootView.lockers_details
         lockersImageViewExpand = rootView.lockers_imageViewExpand
         lockersDetailLayout = rootView.lockers_detail_content
-
-        val lockersToolbar = rootView.lockers_toolbar
-        lockersToolbar.title = getString(R.string.lockers)
-        lockersToolbar.subtitle = getString(R.string.lockers)
-
-        lockersToolbar.inflateMenu(R.menu.services_menu)
-        lockersToolbar.menu.getItem(0).setOnMenuItemClickListener{
-            this.showLockersDialog()
-            return@setOnMenuItemClickListener true
-        }
+        lockersDialogButton = rootView.lockers_card_btn
+        lockersDialogButton.setOnClickListener{ this.showLockersDialog() }
 
         // Animate the expand/collapse of the bottom
         lockersDetailLayout.setOnClickListener { this.toggleDetails(lockersDetails, lockersImageViewExpand) }
@@ -146,16 +136,8 @@ class ServicesFragment : Fragment() {
         donationsDetails = rootView.donations_details
         donationsImageViewExpand = rootView.donations_imageViewExpand
         donationsDetailLayout = rootView.donations_detail_content
-
-        val donationsToolbar = rootView.donations_toolbar
-        donationsToolbar.title = getString(R.string.donations)
-        donationsToolbar.subtitle = getString(R.string.donations)
-
-        donationsToolbar.inflateMenu(R.menu.services_menu)
-        donationsToolbar.menu.getItem(0).setOnMenuItemClickListener {
-            this.showInventoryDialog()
-            return@setOnMenuItemClickListener true
-        }
+        donationsDialogButton = rootView.donations_card_btn
+        donationsDialogButton.setOnClickListener { this.showInventoryDialog() }
 
         // Animate the expand/collapse of the bottom
         donationsDetailLayout.setOnClickListener { this.toggleDetails(donationsDetails, donationsImageViewExpand) }
@@ -199,10 +181,12 @@ class ServicesFragment : Fragment() {
         if (layout.visibility == View.GONE) {
             ExpandAndCollapseViewUtil.expand(layout, DURATION)
             imageView.setImageResource(R.drawable.ic_more)
+            context?.let { ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(ContextCompat.getColor(it, R.color.colorNeutral))) }
             rotate(-180.0f, imageView)
         } else {
             ExpandAndCollapseViewUtil.collapse(layout, DURATION)
             imageView.setImageResource(R.drawable.ic_less)
+            context?.let { ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(ContextCompat.getColor(it, R.color.colorNeutral))) }
             rotate(180.0f, imageView)
         }
     }

@@ -15,7 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_menu"
-            app:title="@string/app_name"/>
+            app:titleTextColor="@android:color/white"
+            android:alpha="0.7"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager

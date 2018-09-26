@@ -16,6 +16,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/stats_summary_label"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_stats_summery_card"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +29,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:cardElevation="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_stats_spinner_label"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_stats_summary_label">
 
@@ -54,7 +57,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="30"
-                    android:textSize="36sp"
+                    android:textSize="44sp"
                     app:layout_constraintBottom_toTopOf="@+id/fragment_stats_summary_women_label"
                     app:layout_constraintEnd_toStartOf="@+id/fragment_stats_summary_women_percent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -69,7 +72,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="@string/percent"
-                    android:textSize="36sp"
+                    android:textSize="44sp"
                     app:layout_constraintBottom_toTopOf="@+id/fragment_stats_summary_women_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -123,7 +126,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="50"
-                    android:textSize="36sp"
+                    android:textSize="44sp"
                     app:layout_constraintBottom_toTopOf="@+id/fragment_stats_summary_mood_label"
                     app:layout_constraintEnd_toStartOf="@+id/fragment_stats_summary_mood_percent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -138,7 +141,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="@string/percent"
-                    android:textSize="36sp"
+                    android:textSize="44sp"
                     app:layout_constraintBottom_toTopOf="@+id/fragment_stats_summary_mood_label"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -189,7 +192,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
                     android:text="4"
-                    android:textSize="36sp"
+                    android:textSize="44sp"
                     app:layout_constraintBottom_toTopOf="@+id/textView14"
                     app:layout_constraintEnd_toStartOf="@+id/fragment_stats_summary_presence_total"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -231,6 +234,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/stats_spinner_label"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_stats_spinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_stats_summery_card" />
 
@@ -241,7 +245,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_stats_date_range_label"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_stats_spinner_label" />
 
@@ -252,6 +258,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="@string/stats_date_range_label"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_stats_date_range_begin"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_stats_spinner" />
 
@@ -265,6 +272,7 @@
         android:ems="10"
         android:hint="@string/stats_date_range_begin"
         android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/fragment_stats_submit"
         app:layout_constraintEnd_toStartOf="@+id/fragment_stats_date_range_end"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -275,15 +283,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="@string/stats_date_range_end"
         android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="@+id/fragment_stats_date_range_begin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/fragment_stats_date_range_begin"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_stats_date_range_label" />
+        app:layout_constraintTop_toTopOf="@+id/fragment_stats_date_range_begin" />
 
     <Button
         android:id="@+id/fragment_stats_submit"
@@ -292,8 +300,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/stats_submit"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_stats_date_range_begin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,21 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlActivated">@color/colorControlActivated</item>
-        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
-        <item name="android:textColorPrimary">@color/textColorPrimary</item>
     </style>
 
     <style name="Widget.Demeter.Toolbar" parent="Widget.AppCompat.Toolbar">
-        <item name="android:background">?attr/colorAccent</item>
-        <item name="colorControlNormal">@color/colorControlActivated</item>
-        <item name="android:theme">@style/Theme.Demeter</item>
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
-        <item name="titleTextAppearance">@style/TextAppearance.Demeter.Toolbar</item>
-    </style>
-
-    <style name="TextAppearance.Demeter.Toolbar" parent="TextAppearance.MaterialComponents.Button">
-        <item name="android:textSize">16sp</item>
+        <item name="titleTextAppearance">@style/TextAppearance.MaterialComponents.Button</item>
     </style>
 
     <style name="Widget.Demeter.Button" parent="Widget.MaterialComponents.Button">
@@ -29,8 +18,8 @@
     </style>
 
     <style name="DialogAnimation">
-        <item name="android:windowEnterAnimation">@anim/slide_in_from_left</item>
-        <item name="android:windowExitAnimation">@anim/slide_out_to_right</item>
+        <item name="android:windowEnterAnimation">@anim/slide_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_out</item>
     </style>
 
 </resources>

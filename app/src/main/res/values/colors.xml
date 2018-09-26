@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E0E0E0</color>
-    <color name="colorPrimaryDark">#27272F</color>
-    <color name="colorAccent">#33333D</color>
-    <color name="toolbarIconColor">@color/textColorPrimary</color>
-    <color name="textColorPrimary">#FFCF44</color>
-    <color name="colorControlActivated">#FFCF44</color>
+    <color name="colorPrimary">#27272f</color>
+    <color name="colorPrimaryDark">#000005</color>
+    <color name="colorAccent">#FFCF44</color>
+    <color name="cardBackground">#eceff1</color>
+    <color name="colorNeutral">#616161</color>
+    <!--<color name="toolbarIconColor">@color/textColorPrimary</color>
+    <color name="textColorPrimary">@color/colorAccent</color>
+    <color name="colorControlActivated">@color/colorAccent</color>-->
 </resources>
