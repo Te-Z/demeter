@@ -3,6 +3,7 @@ package app.tez.demeter.list
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
+import androidx.core.content.ContextCompat
 import app.tez.demeter.R
 import app.tez.demeter.models.Recipient
 import com.bumptech.glide.RequestManager
@@ -28,12 +29,12 @@ class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
                 else -> throw Exception("This mood is not between 0 and 100: ${recipient.mood}")
             }
 
-        glide.load(context.resources.getDrawable(color)).apply(RequestOptions().circleCrop()).into(mood)
+        glide.load(ContextCompat.getDrawable(context, color)).apply(RequestOptions().circleCrop()).into(mood)
 
         if(recipient.avatar != null){
             glide.load(recipient.avatar).apply(RequestOptions().circleCrop()).into(picture)
         } else {
-            glide.load(context.resources.getDrawable(R.drawable.default_avatar)).apply(RequestOptions().circleCrop()).into(picture)
+            glide.load(ContextCompat.getDrawable(context, R.drawable.default_avatar)).apply(RequestOptions().circleCrop()).into(picture)
         }
 
         val name = "${recipient.firstName} ${recipient.lastName.toUpperCase()}"

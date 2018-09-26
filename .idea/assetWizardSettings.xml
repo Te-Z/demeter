@@ -69,7 +69,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/C:/Users/tzafi/OneDrive/Bureau/android-studio-ide-181.4987877-windows/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_expand_less_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/C:/Users/tzafi/OneDrive/Bureau/android-studio-ide-181.4987877-windows/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/av/ic_recent_actors_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -79,7 +79,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_less" />
+                            <entry key="outputName" value="ic_list" />
                             <entry key="sourceFile" value="C:\Users\Tez" />
                           </map>
                         </option>

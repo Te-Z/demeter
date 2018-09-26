@@ -76,4 +76,9 @@
     <!-- ADD RECIPIENT FRAGMENT -->
     <string name="lastname_label">Nom: </string>
     <string name="firstname_label">Prénom: </string>
+
+    <!-- BOTTOM NAVIGATION VIEW -->
+    <string name="stats_label">Statistiques</string>
+    <string name="list_label">Liste des personnes</string>
+    <string name="services_label">Services</string>
 </resources>
