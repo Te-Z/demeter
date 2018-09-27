@@ -22,7 +22,7 @@ import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import kotlinx.android.synthetic.main.dialog_add_laundry.view.*
 
-class InventoryAddDialog: DialogFragment(), ChipGroup.OnCheckedChangeListener , AdapterView.OnItemSelectedListener {
+class InventoryAddDialogFragment: DialogFragment(), ChipGroup.OnCheckedChangeListener , AdapterView.OnItemSelectedListener {
 
     companion object {
         const val TAG = "InventoryAddDialog"

@@ -121,4 +121,6 @@
     <string name="recipient_female">F</string>
     <string name="recipient_other_sex">O</string>
     <string name="recipient_created">La personne a bien été ajoutée à la base !</string>
+    <string name="recipient_history">Historique</string>
+    <string name="recipient_informations">Informations</string>
 </resources>

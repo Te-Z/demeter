@@ -46,11 +46,13 @@ class ListFragment : Fragment() {
     // -----------------
 
     private fun configureRecyclerView(){
-        context?.let {
-            this.adapter = ListAdapter(testList, Glide.with(it))
-            this.recyclerView = rootView.list_recyclerview
-            this.recyclerView.adapter = this.adapter
-            this.recyclerView.layoutManager = LinearLayoutManager(it)
+        context?.let {ctx ->
+            fragmentManager?.let {manager ->
+                this.adapter = ListAdapter(testList, Glide.with(ctx), manager)
+                this.recyclerView = rootView.list_recyclerview
+                this.recyclerView.adapter = this.adapter
+                this.recyclerView.layoutManager = LinearLayoutManager(ctx)
+            }
         }
     }
 }

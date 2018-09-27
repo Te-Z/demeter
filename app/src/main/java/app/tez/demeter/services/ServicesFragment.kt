@@ -21,13 +21,12 @@ import app.tez.demeter.Fake
 import app.tez.demeter.R
 import app.tez.demeter.models.DonationItem
 import app.tez.demeter.models.Recipient
-import app.tez.demeter.services.dialog.InventoryAddDialog
+import app.tez.demeter.services.dialog.InventoryAddDialogFragment
 import app.tez.demeter.services.dialog.LockersDialog
 import app.tez.demeter.services.recyclerview.DonationsAdapter
 import app.tez.demeter.services.recyclerview.SimpleServicesAdapter
 import app.tez.demeter.utils.ExpandAndCollapseViewUtil
 import kotlinx.android.synthetic.main.fragment_services.view.*
-import java.util.concurrent.locks.Lock
 
 /**
  * A simple [Fragment] subclass.
@@ -158,12 +157,12 @@ class ServicesFragment : Fragment() {
 
     private fun showInventoryDialog(){
         Log.d(TAG, "showInventoryDialog: click !")
-        val dialog = InventoryAddDialog()
+        val dialog = InventoryAddDialogFragment()
         fragmentManager?.let {
             val ft = it.beginTransaction()
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             dialog.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.Theme_Demeter)
-            dialog.show(ft, InventoryAddDialog.TAG)
+            dialog.show(ft, InventoryAddDialogFragment.TAG)
         }
     }
 

@@ -5,26 +5,27 @@
     android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".list.RecipientProfileDialogFragment">
+    tools:context=".list.dialog.RecipientProfileDialogFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:elevation="4dp"
+        app:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/fragment_recipient_profile_mood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@mipmap/ic_launcher_round" />
 
         <ImageView
             android:id="@+id/fragment_recipient_profile_pic"
@@ -38,13 +39,13 @@
             app:layout_constraintEnd_toEndOf="@+id/fragment_recipient_profile_mood"
             app:layout_constraintStart_toStartOf="@+id/fragment_recipient_profile_mood"
             app:layout_constraintTop_toTopOf="@+id/fragment_recipient_profile_mood"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@mipmap/ic_launcher_round" />
 
         <TextView
             android:id="@+id/fragment_recipient_profile_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:text="nom"
             android:textColor="@android:color/white"
             android:textSize="30sp"
@@ -85,9 +86,30 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/fragment_recipient_profil_tab_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:elevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraintLayout4"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragment_recipient_profile_dialog_viewpager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_recipient_profil_tab_layout">
+
+    </androidx.viewpager.widget.ViewPager>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

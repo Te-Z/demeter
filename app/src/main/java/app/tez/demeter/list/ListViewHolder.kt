@@ -3,6 +3,7 @@ package app.tez.demeter.list
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import app.tez.demeter.R
 import app.tez.demeter.models.Recipient
@@ -18,6 +19,7 @@ class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     private val mood = itemView.fragment_list_item_mood
     private val picture = itemView.fragment_list_item_pic
     private val username = itemView.fragment_list_item_name
+    val layout: ConstraintLayout = itemView.fragment_list_item_left
 
     fun updateItem(recipient: Recipient, glide: RequestManager, context: Context){
 
