@@ -5,7 +5,5 @@
     <color name="colorAccent">#FFCF44</color>
     <color name="cardBackground">#eceff1</color>
     <color name="colorNeutral">#616161</color>
-    <!--<color name="toolbarIconColor">@color/textColorPrimary</color>
-    <color name="textColorPrimary">@color/colorAccent</color>
-    <color name="colorControlActivated">@color/colorAccent</color>-->
+    <color name="colorWhite">#FFF</color>
 </resources>

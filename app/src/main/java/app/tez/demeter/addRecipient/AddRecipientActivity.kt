@@ -1,5 +1,6 @@
 package app.tez.demeter.addRecipient
 
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -26,7 +27,9 @@ class AddRecipientActivity : AppCompatActivity() {
     private fun configureToolbar(){
         setSupportActionBar(add_recipient_activity_toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeAsUpIndicator(ContextCompat.getDrawable(this, R.drawable.ic_back))
+        val upArrow = ContextCompat.getDrawable(this, R.drawable.ic_back)
+        upArrow?.setColorFilter(ContextCompat.getColor(this, R.color.colorWhite), PorterDuff.Mode.SRC_ATOP)
+        supportActionBar?.setHomeAsUpIndicator(upArrow)
     }
 
     private fun configureAndShowAddRecipientFragment(){

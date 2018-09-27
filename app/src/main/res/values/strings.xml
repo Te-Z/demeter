@@ -6,6 +6,10 @@
     <!-- UTILS -->
     <string name="remove">Effacer</string>
     <string name="colon" translatable="false">:</string>
+    <string name="empty_field">Champs obligatoire</string>
+    <string name="error_title">Oups ! :o</string>
+    <string name="ok">Ok</string>
+    <string name="set_birth_date_error">Merci de sélectionner une date de naissance</string>
 
     <!-- SERVICES -->
     <string name="laundry">Laverie</string>
@@ -60,6 +64,7 @@
     <!-- DIALOGS -->
     <string name="positive_button">Ok</string>
     <string name="negative_button">Annuler</string>
+    <string name="validation_button">Valider</string>
 
     <!-- STATS FRAGMENT -->
     <string name="percent"> %</string>
@@ -73,12 +78,47 @@
     <string name="stats_date_range_begin">Début</string>
     <string name="stats_date_range_end">Fin</string>
 
-    <!-- ADD RECIPIENT FRAGMENT -->
-    <string name="lastname_label">Nom: </string>
-    <string name="firstname_label">Prénom: </string>
-
     <!-- BOTTOM NAVIGATION VIEW -->
     <string name="stats_label">Statistiques</string>
     <string name="list_label">Liste des personnes</string>
     <string name="services_label">Services</string>
+
+    <!-- RECIPIENT PROFIL-->
+    <string name="lastname_label">Nom: </string>
+    <string name="firstname_label">Prénom: </string>
+    <string name="recipient_add_label">Nouvelle personne</string>
+    <string name="recipient_mood">Humeur</string>
+    <string name="recipient_pic">Photo</string>
+    <string name="recipient_date_birth_label">Né(e) le:</string>
+    <string name="recipient_date_birth_hint">../../....</string>
+    <string name="recipient_nationality_label">Nationalité</string>
+    <string name="recipient_meeting_place">Lieu de rencontre</string>
+    <string name="recipient_meeting_was_planned_label">La rencontre était-elle prévue ?</string>
+    <string name="recipient_contact_agent_label">Aviez-vous été contacté par un agent ?</string>
+    <string name="recipient_partner_label">Maraude avec un partenaire ?</string>
+    <string-array name="recipient_contact_agent_array">
+        <item>Transpole</item>
+        <item>Citeo</item>
+        <item>Médiapole</item>
+        <item>SNCF</item>
+        <item>Autre</item>
+    </string-array>
+    <string-array name="recipient_sex_array">
+        <item>@string/recipient_male</item>
+        <item>@string/recipient_female</item>
+        <item>@string/recipient_other_sex</item>
+    </string-array>
+    <string-array name="partners_array">
+        <item>Diogène</item>
+        <item>Samu Social</item>
+        <item>Accueil de jour</item>
+        <item>Centre de santé</item>
+        <item>Halte de nuit</item>
+        <item>Maraude générale ABEJ</item>
+        <item>Autre</item>
+    </string-array>
+    <string name="recipient_male">Monsieur</string>
+    <string name="recipient_female">F</string>
+    <string name="recipient_other_sex">O</string>
+    <string name="recipient_created">La personne a bien été ajoutée à la base !</string>
 </resources>
