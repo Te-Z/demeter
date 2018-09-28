@@ -10,6 +10,7 @@
     <string name="error_title">Oups ! :o</string>
     <string name="ok">Ok</string>
     <string name="set_birth_date_error">Merci de sélectionner une date de naissance</string>
+    <string name="aucun">Aucun</string>
 
     <!-- SERVICES -->
     <string name="laundry">Laverie</string>
@@ -87,15 +88,16 @@
     <string name="lastname_label">Nom: </string>
     <string name="firstname_label">Prénom: </string>
     <string name="recipient_add_label">Nouvelle personne</string>
-    <string name="recipient_mood">Humeur</string>
+    <string name="recipient_mood">Humeur:</string>
     <string name="recipient_pic">Photo</string>
     <string name="recipient_date_birth_label">Né(e) le:</string>
     <string name="recipient_date_birth_hint">../../....</string>
-    <string name="recipient_nationality_label">Nationalité</string>
-    <string name="recipient_meeting_place">Lieu de rencontre</string>
+    <string name="recipient_nationality_label">Nationalité:</string>
+    <string name="recipient_meeting_place">Lieu de rencontre:</string>
     <string name="recipient_meeting_was_planned_label">La rencontre était-elle prévue ?</string>
     <string name="recipient_contact_agent_label">Aviez-vous été contacté par un agent ?</string>
     <string name="recipient_partner_label">Maraude avec un partenaire ?</string>
+    <string name="recipient_partner_label_2">Partenaire de maraude:</string>
     <string-array name="recipient_contact_agent_array">
         <item>Transpole</item>
         <item>Citeo</item>
@@ -123,4 +125,6 @@
     <string name="recipient_created">La personne a bien été ajoutée à la base !</string>
     <string name="recipient_history">Historique</string>
     <string name="recipient_informations">Informations</string>
+    <string name="recipient_registration_date">Date d\'orientation:</string>
+    <string name="recipient_sex_label">Sexe: </string>
 </resources>

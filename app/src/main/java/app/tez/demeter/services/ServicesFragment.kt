@@ -33,7 +33,7 @@ import kotlinx.android.synthetic.main.fragment_services.view.*
  *
  */
 
-private const val DURATION = 250
+const val DURATION = 250
 private const val TAG = "ServicesFragment"
 
 class ServicesFragment : Fragment() {

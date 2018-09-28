@@ -17,7 +17,7 @@ import com.bumptech.glide.RequestManager
  * Created by Terence Zafindratafa on 11/09/2018
  */
 
-private const val TAG = "ListAdapter"
+const val ListAdapterTAG = "ListAdapter"
 
 class ListAdapter(private val recipientList: List<Recipient>, private val glide: RequestManager, private val manager: FragmentManager): RecyclerView.Adapter<ListViewHolder>(){
 
@@ -40,10 +40,10 @@ class ListAdapter(private val recipientList: List<Recipient>, private val glide:
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             val dialog = RecipientProfileDialogFragment()
             val bundle = Bundle()
-            bundle.putParcelable(TAG, recipientList[position])
+            bundle.putParcelable(ListAdapterTAG, recipientList[position])
             dialog.arguments = bundle
             dialog.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.Theme_Demeter)
-            dialog.show(ft, TAG)
+            dialog.show(ft, ListAdapterTAG)
         }
     }
 }

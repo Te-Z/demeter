@@ -14,7 +14,9 @@ data class Recipient (var firstName: String,
                       var avatar: String?,
                       val meetingPlace: String,
                       val wasFirstMeetingPlanned: Boolean,
-                      val partner: String?): Parcelable {
+                      val partner: String?,
+                      val firstRegistration: String,
+                      val nationality: String): Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
@@ -24,7 +26,10 @@ data class Recipient (var firstName: String,
             parcel.readString(),
             parcel.readString(),
             parcel.readByte() != 0.toByte(),
-            parcel.readString())
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()) {
+    }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(firstName)
@@ -36,6 +41,8 @@ data class Recipient (var firstName: String,
         parcel.writeString(meetingPlace)
         parcel.writeByte(if (wasFirstMeetingPlanned) 1 else 0)
         parcel.writeString(partner)
+        parcel.writeString(firstRegistration)
+        parcel.writeString(nationality)
     }
 
     override fun describeContents(): Int {

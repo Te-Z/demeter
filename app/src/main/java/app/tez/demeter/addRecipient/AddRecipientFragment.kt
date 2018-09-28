@@ -16,6 +16,7 @@ import app.tez.demeter.models.Recipient
 import app.tez.demeter.utils.DialogUtils
 import kotlinx.android.synthetic.main.fragment_add_recipient.view.*
 import java.lang.Exception
+import java.util.*
 
 private const val TAG = "AddRecipientFragment"
 
@@ -87,6 +88,11 @@ class AddRecipientFragment : Fragment(), AdapterView.OnItemSelectedListener {
     }
 
     private fun createRecipient(){
+        val calendar = Calendar.getInstance()
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val month = calendar.get(Calendar.MONTH)
+        val year =  calendar.get(Calendar.YEAR)
+
         val newRecipient = Recipient(
                 firstNameEditText.text.toString(),
                 lastNameEditText.text.toString(),
@@ -96,7 +102,9 @@ class AddRecipientFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 null,
                 meetingPlaceEditText.text.toString(),
                 isPlannedSwitch.isChecked,
-                if (isWithPartnerSwitch.isChecked) selectedPartner else null
+                if (isWithPartnerSwitch.isChecked) selectedPartner else null,
+                "$day/$month/$year",
+                nationalityEditText.text.toString()
         )
 
         Toast.makeText(context, getString(R.string.recipient_created), Toast.LENGTH_SHORT).show()

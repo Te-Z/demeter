@@ -11,16 +11,16 @@ class Fake {
 
     companion object {
         fun userList(testList: MutableList<Recipient>){
-            val recipient1 = Recipient("Tez", "Zet", "1990-01-14", "M", 65, null, "métro république", false, null)
-            val recipient2 = Recipient("Baz", "Zab", "1990-01-04", "M", 15, null, "circuit de Lesquin", true, null)
-            val recipient3 = Recipient("Piou", "Ouip", "1992-11-14", "F", 85, null, "Pont de bois", false, "Transpole")
-            val recipient4 = Recipient("Bbg", "Gbb", "1993-05-14", "F", 25, null, "Valenciennes", false, "SNCF")
-            val recipient5 = Recipient("Gez", "Zeg", "1950-01-25", "F", 45, null, "Rue de la clé à Lille", false, null)
-            val recipient6 = Recipient("Chaz", "Zach", "1970-01-14", "M", 95, null, "Internet", false, "C3PO")
-            val recipient7 = Recipient("Milo", "Olim", "2014-01-14", "A", 15, null, "10 rue des Tours Lille", true, "Autre")
-            val recipient8 = Recipient("Leia", "Tez", "2015-08-31", "A", 5, null, "Carrefour rue de Douai Lille", false, "Autre")
-            val recipient9= Recipient("Fury", "Gan", "1850-01-14", "M", 50, null, "Place de la république", false, "Transpole")
-            val recipient0 = Recipient("Sam", "Ouraï", "1900-01-14", "F", 70, null, "Roubaix", true, null)
+            val recipient1 = Recipient("Tez", "Zet", "1990-01-14", "M", 65, null, "métro république", false, null, "1990-01-14", "Français")
+            val recipient2 = Recipient("Baz", "Zab", "1990-01-04", "M", 15, null, "circuit de Lesquin", true, null, "1992-11-14", "Français")
+            val recipient3 = Recipient("Piou", "Ouip", "1992-11-14", "F", 85, null, "Pont de bois", false, "Transpole", "1850-01-14", "Français")
+            val recipient4 = Recipient("Bbg", "Gbb", "1993-05-14", "F", 25, null, "Valenciennes", false, "SNCF", "1850-01-14", "Français")
+            val recipient5 = Recipient("Gez", "Zeg", "1950-01-25", "F", 45, null, "Rue de la clé à Lille", false, null, "1992-11-14", "Français")
+            val recipient6 = Recipient("Chaz", "Zach", "1970-01-14", "M", 95, null, "Internet", false, "C3PO", "1993-05-14", "Français")
+            val recipient7 = Recipient("Milo", "Olim", "2014-01-14", "A", 15, null, "10 rue des Tours Lille", true, "Autre", "1992-11-14", "Français")
+            val recipient8 = Recipient("Leia", "Tez", "2015-08-31", "A", 5, null, "Carrefour rue de Douai Lille", false, "Autre", "1993-05-14", "Français")
+            val recipient9= Recipient("Fury", "Gan", "1850-01-14", "M", 50, null, "Place de la république", false, "Transpole", "1993-05-14", "Français")
+            val recipient0 = Recipient("Sam", "Ouraï", "1900-01-14", "F", 70, null, "Roubaix", true, null, "1850-01-14", "Français")
 
             testList.add(recipient0)
             testList.add(recipient1)
