@@ -13,7 +13,7 @@ import app.tez.demeter.bases.BaseEditText
 import app.tez.demeter.exceptions.DATE_OF_BIRTH_MUST_NOT_BE_EMPTY
 import app.tez.demeter.exceptions.RecipientException
 import app.tez.demeter.models.Recipient
-import app.tez.demeter.utils.DialogUtils
+import app.tez.demeter.utils.Utils
 import kotlinx.android.synthetic.main.fragment_add_recipient.view.*
 import java.lang.Exception
 import java.util.*
@@ -40,6 +40,7 @@ class AddRecipientFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var isWithPartnerSwitch: Switch
     private lateinit var partnerSpinner: Spinner
     private lateinit var submitButton: Button
+    private lateinit var addToListSwitch: Switch
 
     // DATA
     private lateinit var selectedSex: String
@@ -48,6 +49,7 @@ class AddRecipientFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var contactArrayAdapter: ArrayAdapter<CharSequence>
     private lateinit var selectedPartner: String
     private lateinit var partnerArrayAdapter: ArrayAdapter<CharSequence>
+    private var isAddedtoList = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -57,9 +59,10 @@ class AddRecipientFragment : Fragment(), AdapterView.OnItemSelectedListener {
         this.configureSexSpinner()
         this.configureContactSwitch()
         this.configurePartnerSwitch()
+        this.configureAddToListSwitch()
         this.configureContactSpinner()
         this.configurePartnerSpinner()
-        DialogUtils.configureDatePicker(dateOfBirthButton, context)
+        Utils.configureDatePicker(dateOfBirthButton, context)
         this.configureOnSubmitClick()
         return rootView
     }
@@ -82,7 +85,7 @@ class AddRecipientFragment : Fragment(), AdapterView.OnItemSelectedListener {
             this.createRecipient()
         } catch (e: Exception){
             when(e){
-                is RecipientException -> if (e.message == DATE_OF_BIRTH_MUST_NOT_BE_EMPTY) DialogUtils.openDateAlertDialog(context, R.string.set_birth_date_error)
+                is RecipientException -> if (e.message == DATE_OF_BIRTH_MUST_NOT_BE_EMPTY) Utils.openDateAlertDialog(context, R.string.set_birth_date_error)
             }
         }
     }
@@ -106,8 +109,13 @@ class AddRecipientFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 "$day/$month/$year",
                 nationalityEditText.text.toString()
         )
+        if(isAddedtoList){
+            Toast.makeText(context, getString(R.string.recipient_created_and_added_to_list), Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(context, getString(R.string.recipient_created), Toast.LENGTH_SHORT).show()
+        }
 
-        Toast.makeText(context, getString(R.string.recipient_created), Toast.LENGTH_SHORT).show()
+        activity?.finish()
     }
 
     // ------------
@@ -127,6 +135,7 @@ class AddRecipientFragment : Fragment(), AdapterView.OnItemSelectedListener {
         this.isWithPartnerSwitch = rootView.fragment_add_recipient_partner_switch
         this.partnerSpinner = rootView.fragment_add_recipient_partner_spinner
         this.submitButton = rootView.fragment_add_recipient_submit
+        this.addToListSwitch = rootView.fragment_add_recipient_to_list_switch
     }
 
     private fun configureSexSpinner(){
@@ -153,6 +162,12 @@ class AddRecipientFragment : Fragment(), AdapterView.OnItemSelectedListener {
                 true -> partnerSpinner.visibility = View.VISIBLE
                 false -> partnerSpinner.visibility = View.GONE
             }
+        }
+    }
+
+    private fun configureAddToListSwitch(){
+        this.addToListSwitch.setOnCheckedChangeListener { _, b ->
+            isAddedtoList = b
         }
     }
 

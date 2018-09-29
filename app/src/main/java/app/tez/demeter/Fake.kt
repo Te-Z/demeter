@@ -1,7 +1,9 @@
 package app.tez.demeter
 
 import android.content.Context
+import app.tez.demeter.models.ActionItem
 import app.tez.demeter.models.DonationItem
+import app.tez.demeter.models.Educator
 import app.tez.demeter.models.Recipient
 
 /**
@@ -10,7 +12,7 @@ import app.tez.demeter.models.Recipient
 class Fake {
 
     companion object {
-        fun userList(testList: MutableList<Recipient>){
+        fun recipientList(testList: MutableList<Recipient>){
             val recipient1 = Recipient("Tez", "Zet", "1990-01-14", "M", 65, null, "métro république", false, null, "1990-01-14", "Français")
             val recipient2 = Recipient("Baz", "Zab", "1990-01-04", "M", 15, null, "circuit de Lesquin", true, null, "1992-11-14", "Français")
             val recipient3 = Recipient("Piou", "Ouip", "1992-11-14", "F", 85, null, "Pont de bois", false, "Transpole", "1850-01-14", "Français")
@@ -68,6 +70,21 @@ class Fake {
             testList.add(item15)
 
 
+        }
+
+        fun educator(): Educator = Educator("Tez")
+
+        fun ActionItemList(): List<ActionItem>{
+            val recipient1 = Recipient("Tez", "Zet", "1990-01-14", "M", 65, null, "métro république", false, null, "1990-01-14", "Français")
+            val recipient2 = Recipient("Baz", "Zab", "1990-01-04", "M", 15, null, "circuit de Lesquin", true, null, "1992-11-14", "Français")
+            val recipient3 = Recipient("Piou", "Ouip", "1992-11-14", "F", 85, null, "Pont de bois", false, "Transpole", "1850-01-14", "Français")
+
+            val action1 = ActionItem(recipient1, educator().username, "Entretien", "Prise de contact", "14/01/2018", "coucou")
+            val action2 = ActionItem(recipient1, educator().username, "Entretien", "Prise de contact", "15/03/2018", "coucou")
+            val action3 = ActionItem(recipient1, educator().username, "Entretien", "Prise de contact", "12/08/2018","coucou")
+            var action4 = ActionItem(recipient1, educator().username, "Entretien", "Prise de contact", "15/03/2018", "coucou")
+
+            return listOf(action1, action2, action3, action4)
         }
     }
 }

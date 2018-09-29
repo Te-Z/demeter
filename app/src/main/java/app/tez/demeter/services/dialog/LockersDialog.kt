@@ -41,7 +41,7 @@ class LockersDialog : DialogFragment(), AdapterView.OnItemSelectedListener{
         this.rootView = inflater.inflate(R.layout.dialog_lockers, null)
 
         // TODO: enlever les lignes de test
-        Fake.userList(userList)
+        Fake.recipientList(userList)
         for(recipient in userList){
             val string = recipient.firstName + " " + recipient.lastName
             personList.add(string)

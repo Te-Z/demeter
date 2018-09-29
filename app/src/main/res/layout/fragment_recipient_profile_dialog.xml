@@ -107,7 +107,7 @@
                 app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/fragment_recipient_profile_details"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -115,132 +115,139 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="8dp"
+            android:orientation="vertical"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_date_label"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/recipient_registration_date"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_recipient_profile_meeting_place_label" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_recipient_profile_date_label"
-                app:layout_constraintStart_toEndOf="@+id/fragment_recipient_profile_date_label"
-                app:layout_constraintTop_toTopOf="@+id/fragment_recipient_profile_date_label" />
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_date_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recipient_registration_date"
+                    android:textColor="@color/colorWhite" />
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_sex_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/recipient_sex_label"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_sex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_recipient_profile_sex_label"
-                app:layout_constraintStart_toEndOf="@+id/fragment_recipient_profile_sex_label"
-                app:layout_constraintTop_toTopOf="@+id/fragment_recipient_profile_sex_label" />
-
-            <TextView
-                android:id="@+id/fragment_recipient_profile_birth_label"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/recipient_date_birth_label"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_recipient_profile_sex_label" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_birth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_recipient_profile_birth_label"
-                app:layout_constraintStart_toEndOf="@+id/fragment_recipient_profile_birth_label"
-                app:layout_constraintTop_toTopOf="@+id/fragment_recipient_profile_birth_label" />
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_sex_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recipient_sex_label"
+                    android:textColor="@color/colorWhite" />
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_nationality_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/recipient_nationality_label"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_recipient_profile_birth_label" />
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_sex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_nationality"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_recipient_profile_nationality_label"
-                app:layout_constraintStart_toEndOf="@+id/fragment_recipient_profile_nationality_label"
-                app:layout_constraintTop_toTopOf="@+id/fragment_recipient_profile_nationality_label" />
-
-            <TextView
-                android:id="@+id/fragment_recipient_profile_meeting_place_label"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/recipient_meeting_place"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_recipient_profile_nationality_label" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_meeting_place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_recipient_profile_meeting_place_label"
-                app:layout_constraintStart_toEndOf="@+id/fragment_recipient_profile_meeting_place_label"
-                app:layout_constraintTop_toTopOf="@+id/fragment_recipient_profile_meeting_place_label" />
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_birth_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recipient_date_birth_label"
+                    android:textColor="@color/colorWhite" />
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_meeting_partner_label"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_birth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="@string/recipient_partner_label_2"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_recipient_profile_date_label" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/fragment_recipient_profile_meeting_partner"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_nationality_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recipient_nationality_label"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_nationality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:textColor="@color/colorWhite"
-                app:layout_constraintBottom_toBottomOf="@+id/fragment_recipient_profile_meeting_partner_label"
-                app:layout_constraintStart_toEndOf="@+id/fragment_recipient_profile_meeting_partner_label"
-                app:layout_constraintTop_toTopOf="@+id/fragment_recipient_profile_meeting_partner_label" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_meeting_place_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recipient_meeting_place"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_meeting_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_meeting_partner_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recipient_partner_label_2"
+                    android:textColor="@color/colorWhite" />
+
+                <TextView
+                    android:id="@+id/fragment_recipient_profile_meeting_partner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:textColor="@color/colorWhite" />
+            </LinearLayout>
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -253,6 +260,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragment_recipient_profile_dialog_rv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -1,7 +1,6 @@
 package app.tez.demeter.services
 
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
@@ -12,11 +11,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.RotateAnimation
 import android.widget.*
-import androidx.core.content.ContextCompat
-import androidx.core.widget.ImageViewCompat
+import androidx.constraintlayout.widget.ConstraintLayout
 import app.tez.demeter.Fake
 import app.tez.demeter.R
 import app.tez.demeter.models.DonationItem
@@ -25,7 +21,7 @@ import app.tez.demeter.services.dialog.InventoryAddDialogFragment
 import app.tez.demeter.services.dialog.LockersDialog
 import app.tez.demeter.services.recyclerview.DonationsAdapter
 import app.tez.demeter.services.recyclerview.SimpleServicesAdapter
-import app.tez.demeter.utils.ExpandAndCollapseViewUtil
+import app.tez.demeter.utils.Utils
 import kotlinx.android.synthetic.main.fragment_services.view.*
 
 /**
@@ -33,7 +29,6 @@ import kotlinx.android.synthetic.main.fragment_services.view.*
  *
  */
 
-const val DURATION = 250
 private const val TAG = "ServicesFragment"
 
 class ServicesFragment : Fragment() {
@@ -74,7 +69,7 @@ class ServicesFragment : Fragment() {
         rootView = inflater.inflate(R.layout.fragment_services, container, false)
 
         //TODO: remove testLists
-        Fake.userList(userTestList)
+        Fake.recipientList(userTestList)
         context?.let { Fake.donationItemList(itemTestList, it) }
 
         this.configureLaundryCardView()
@@ -99,7 +94,7 @@ class ServicesFragment : Fragment() {
         laundryDialogButton.setOnClickListener { this.showInventoryDialog() }
 
         // Animate the expand/collapse of the bottom
-        laundryDetailLayout.setOnClickListener { this.toggleDetails(laundryDetails, laundryImageViewExpand) }
+        laundryDetailLayout.setOnClickListener { Utils.toggleDetails(laundryDetails, laundryImageViewExpand) }
     }
 
     private fun configureLaundryRecyclerView(){
@@ -119,7 +114,7 @@ class ServicesFragment : Fragment() {
         lockersDialogButton.setOnClickListener{ this.showLockersDialog() }
 
         // Animate the expand/collapse of the bottom
-        lockersDetailLayout.setOnClickListener { this.toggleDetails(lockersDetails, lockersImageViewExpand) }
+        lockersDetailLayout.setOnClickListener { Utils.toggleDetails(lockersDetails, lockersImageViewExpand) }
     }
 
     private fun configureLockersRecyclerView(){
@@ -139,7 +134,7 @@ class ServicesFragment : Fragment() {
         donationsDialogButton.setOnClickListener { this.showInventoryDialog() }
 
         // Animate the expand/collapse of the bottom
-        donationsDetailLayout.setOnClickListener { this.toggleDetails(donationsDetails, donationsImageViewExpand) }
+        donationsDetailLayout.setOnClickListener { Utils.toggleDetails(donationsDetails, donationsImageViewExpand) }
     }
 
     private fun configureDonationsRecyclerView(){
@@ -174,27 +169,5 @@ class ServicesFragment : Fragment() {
             ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             dialog.show(ft, LockersDialog.TAG)
         }
-    }
-
-    private fun toggleDetails(layout: LinearLayout, imageView: ImageView) {
-        if (layout.visibility == View.GONE) {
-            ExpandAndCollapseViewUtil.expand(layout, DURATION)
-            imageView.setImageResource(R.drawable.ic_more)
-            context?.let { ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(ContextCompat.getColor(it, R.color.colorNeutral))) }
-            rotate(-180.0f, imageView)
-        } else {
-            ExpandAndCollapseViewUtil.collapse(layout, DURATION)
-            imageView.setImageResource(R.drawable.ic_less)
-            context?.let { ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(ContextCompat.getColor(it, R.color.colorNeutral))) }
-            rotate(180.0f, imageView)
-        }
-    }
-
-    private fun rotate(angle: Float, imageView: ImageView) {
-        val animation = RotateAnimation(0.0f, angle, Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f)
-        animation.fillAfter = true
-        animation.duration = DURATION.toLong()
-        imageView.startAnimation(animation)
     }
 }

@@ -1,32 +1,27 @@
 package app.tez.demeter.list.dialog
 
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Animation
-import android.view.animation.RotateAnimation
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.DialogFragment
-import androidx.viewpager.widget.ViewPager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import app.tez.demeter.Fake
 
 import app.tez.demeter.R
 import app.tez.demeter.list.ListAdapterTAG
 import app.tez.demeter.models.Recipient
-import app.tez.demeter.services.DURATION
-import app.tez.demeter.utils.ExpandAndCollapseViewUtil
+import app.tez.demeter.utils.Utils
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.fragment_recipient_profile_dialog.view.*
 
 /**
@@ -56,7 +51,9 @@ class RecipientProfileDialogFragment : DialogFragment() {
     private lateinit var meetingPlaceTextView: TextView
     private lateinit var partnerTextView: TextView
     private lateinit var expandButton: ImageView
-    private lateinit var detailsLayout: ConstraintLayout
+    private lateinit var detailsLayout: LinearLayout
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: RecipientProfileDialogAdapter
 
     // DATA
     private lateinit var recipient: Recipient
@@ -75,6 +72,7 @@ class RecipientProfileDialogFragment : DialogFragment() {
         this.configureDismissButton()
         //this.configureViewPager()
         this.configureViews()
+        this.configureRecyclerView()
         return rootView
     }
 
@@ -82,6 +80,10 @@ class RecipientProfileDialogFragment : DialogFragment() {
         super.onActivityCreated(savedInstanceState)
         dialog.window?.let { it.attributes.windowAnimations = R.style.DialogAnimation }
     }
+
+    // -----------------
+    // CONFIGURATION
+    // -----------------
 
     // -----------------
     // UI
@@ -132,32 +134,19 @@ class RecipientProfileDialogFragment : DialogFragment() {
         meetingPlaceTextView.text = recipient.meetingPlace
         partnerTextView.text = if(recipient.partner != null) recipient.partner else getString(R.string.aucun)
 
-        expandButton.setOnClickListener { this.toggleDetails(detailsLayout, expandButton) }
+        expandButton.setOnClickListener { Utils.toggleDetails(detailsLayout, expandButton) }
     }
 
     private fun configureDismissButton(){
         this.backButton.setOnClickListener { dialog.dismiss() }
     }
 
-    private fun toggleDetails(layout: ConstraintLayout, imageView: ImageView) {
-        if (layout.visibility == View.GONE) {
-            ExpandAndCollapseViewUtil.expand(layout, DURATION)
-            imageView.setImageResource(R.drawable.ic_more)
-            context?.let { ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(ContextCompat.getColor(it, R.color.colorWhite))) }
-            rotate(-180.0f, imageView)
-        } else {
-            ExpandAndCollapseViewUtil.collapse(layout, DURATION)
-            imageView.setImageResource(R.drawable.ic_less)
-            context?.let { ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(ContextCompat.getColor(it, R.color.colorWhite))) }
-            rotate(180.0f, imageView)
+    private fun configureRecyclerView(){
+        context?.let {ctx ->
+            this.adapter = RecipientProfileDialogAdapter(Fake.ActionItemList())
+            this.recyclerView = rootView.fragment_recipient_profile_dialog_rv
+            this.recyclerView.adapter = this.adapter
+            this.recyclerView.layoutManager = LinearLayoutManager(ctx)
         }
-    }
-
-    private fun rotate(angle: Float, imageView: ImageView) {
-        val animation = RotateAnimation(0.0f, angle, Animation.RELATIVE_TO_SELF, 0.5f,
-                Animation.RELATIVE_TO_SELF, 0.5f)
-        animation.fillAfter = true
-        animation.duration = DURATION.toLong()
-        imageView.startAnimation(animation)
     }
 }

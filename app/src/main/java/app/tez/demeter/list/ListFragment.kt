@@ -35,7 +35,7 @@ class ListFragment : Fragment() {
         //TODO: remove testList
 
         rootView = inflater.inflate(R.layout.fragment_list, container, false)
-        Fake.userList(testList)
+        Fake.recipientList(testList)
         this.configureRecyclerView()
         // Inflate the layout for this fragment
         return rootView

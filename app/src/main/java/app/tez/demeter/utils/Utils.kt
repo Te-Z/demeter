@@ -2,7 +2,12 @@ package app.tez.demeter.utils
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.RotateAnimation
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import app.tez.demeter.R
 import java.util.*
@@ -10,7 +15,9 @@ import java.util.*
 /**
  * Created by Terence Zafindratafa on 27/09/2018
  */
-class DialogUtils {
+
+private const val DURATION = 250
+class Utils {
 
     companion object {
         fun configureDatePicker(button: Button, context: Context?){
@@ -52,6 +59,26 @@ class DialogUtils {
                 val dialog = builder.create()
                 dialog.show()
             }
+        }
+
+        fun toggleDetails(layout: LinearLayout, imageView: ImageView) {
+            if (layout.visibility == View.GONE) {
+                ExpandAndCollapseViewUtil.expand(layout, DURATION)
+                imageView.setImageResource(R.drawable.ic_more)
+                rotate(-180.0f, imageView)
+            } else {
+                ExpandAndCollapseViewUtil.collapse(layout, DURATION)
+                imageView.setImageResource(R.drawable.ic_less)
+                rotate(180.0f, imageView)
+            }
+        }
+
+        private fun rotate(angle: Float, imageView: ImageView) {
+            val animation = RotateAnimation(0.0f, angle, Animation.RELATIVE_TO_SELF, 0.5f,
+                    Animation.RELATIVE_TO_SELF, 0.5f)
+            animation.fillAfter = true
+            animation.duration = DURATION.toLong()
+            imageView.startAnimation(animation)
         }
     }
 }

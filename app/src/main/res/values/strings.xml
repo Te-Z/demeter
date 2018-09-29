@@ -123,8 +123,11 @@
     <string name="recipient_female">F</string>
     <string name="recipient_other_sex">O</string>
     <string name="recipient_created">La personne a bien été ajoutée à la base !</string>
+    <string name="recipient_created_and_added_to_list">La personne a bien été ajoutée à la base et à la liste !</string>
+    <string name="recipient_added_to_list">Les personnes ont bien été ajoutées à la liste</string>
     <string name="recipient_history">Historique</string>
     <string name="recipient_informations">Informations</string>
     <string name="recipient_registration_date">Date d\'orientation:</string>
     <string name="recipient_sex_label">Sexe: </string>
+    <string name="recipient_add_to_list">Ajouter à la liste ?</string>
 </resources>
