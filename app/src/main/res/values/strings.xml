@@ -130,4 +130,11 @@
     <string name="recipient_registration_date">Date d\'orientation:</string>
     <string name="recipient_sex_label">Sexe: </string>
     <string name="recipient_add_to_list">Ajouter à la liste ?</string>
+
+    <!-- EDUCATOR PROFILE -->
+    <string name="log_out_button">Déconnexion</string>
+    <string name="navigation_drawer_open">Ouverture</string>
+    <string name="navigation_drawer_close">Fermeture</string>
+    <string name="educator_administration">Gestion des éducateurs</string>
+    <string name="educator_validate">Valider</string>
 </resources>

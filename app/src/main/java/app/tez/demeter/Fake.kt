@@ -72,7 +72,18 @@ class Fake {
 
         }
 
-        fun educator(): Educator = Educator("Tez")
+        fun educator(): Educator = Educator("Tez", "test")
+
+        fun educatorList(): List<Educator>{
+            val educator1 = Educator("Tez", "test")
+            val educator2 = Educator("Piou", "test")
+            val educator3 = Educator("Maxime Le Forestier", "test")
+            val educator4 = Educator("Arnaud Le Poissonnier", "test")
+            val educator5 = Educator("Jean-Jacques Justicier", "test")
+            val educator6 = Educator("Marcel Molar", "test")
+
+            return listOf(educator1, educator2, educator3, educator4, educator5, educator6)
+        }
 
         fun ActionItemList(): List<ActionItem>{
             val recipient1 = Recipient("Tez", "Zet", "1990-01-14", "M", 65, null, "métro république", false, null, "1990-01-14", "Français")

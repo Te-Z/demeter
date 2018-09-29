@@ -7,16 +7,24 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import app.tez.demeter.addRecipient.AddRecipientActivity
+import app.tez.demeter.educators.ValidationActivity
 import app.tez.demeter.list.ListFragment
 import app.tez.demeter.services.ServicesFragment
 import app.tez.demeter.statistics.StatsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var navigationView: NavigationView
+    private lateinit var drawerLayout: DrawerLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         this.configureAppBar()
         this.configureBottomNavigationView()
+        this.configureNavigationView()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -39,12 +48,40 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+        when(item.itemId){
+            R.id.activity_main_menu_drawer_logout -> Toast.makeText(this, "Déconnexion", Toast.LENGTH_SHORT).show()
+            R.id.activity_main_menu_drawer_validations -> startActivity(Intent(this, ValidationActivity::class.java))
+        }
+        this.drawerLayout.closeDrawer(GravityCompat.START)
+
+        return true
+    }
+
+    override fun onBackPressed() {
+        // 5 - Handle back click to close menu
+        if (this.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            this.drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
+    }
+
     // ---------------
     // CONFIGURATION
     // ---------------
 
     private fun configureAppBar(){
-        this.setSupportActionBar(app_bar)
+        val toolbar = app_bar
+        this.setSupportActionBar(toolbar)
+        this.drawerLayout = activity_main_drawer
+        toolbar.setNavigationOnClickListener { drawerLayout.openDrawer(GravityCompat.START) }
+    }
+
+    private fun configureNavigationView(){
+        this.navigationView = activity_main_nav_view
+        navigationView.setNavigationItemSelectedListener(this)
     }
 
     // -----------
