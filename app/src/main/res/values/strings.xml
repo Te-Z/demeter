@@ -71,7 +71,7 @@
     <string name="percent"> %</string>
     <string name="stats_summary_label">Bilan de la soirée en cours:</string>
     <string name="women_rate_label">de femmes</string>
-    <string name="mood_rate_label">de bonne humeur</string>
+    <string name="mood_rate_label">bonne humeur</string>
     <string name="presence_rate_label">présents</string>
     <string name="stats_spinner_label">Quelle données souhaitez-vous consulter ?</string>
     <string name="stats_date_range_label">Sur quelle période ?</string>
@@ -130,6 +130,9 @@
     <string name="recipient_registration_date">Date d\'orientation:</string>
     <string name="recipient_sex_label">Sexe: </string>
     <string name="recipient_add_to_list">Ajouter à la liste ?</string>
+    <string name="recipient_send_action">Ajouter</string>
+    <string name="recipient_cancel_action">Annuler</string>
+    <string name="recipient_comment">Commentaire</string>
 
     <!-- EDUCATOR PROFILE -->
     <string name="log_out_button">Déconnexion</string>
@@ -137,4 +140,115 @@
     <string name="navigation_drawer_close">Fermeture</string>
     <string name="educator_administration">Gestion des éducateurs</string>
     <string name="educator_validate">Valider</string>
+
+    <!-- ACTIONS ITEMS -->
+    <string-array name="action_types">
+        <item>@string/action_entretien</item>
+        <item>@string/action_action</item>
+        <item>@string/action_demarche</item>
+        <item>@string/action_accompagnement</item>
+        <item>@string/action_refus</item>
+        <item>@string/action_visite</item>
+    </string-array>
+    <string name="action_entretien">Entretien</string>
+    <string name="action_action">Action</string>
+    <string name="action_demarche">Démarche</string>
+    <string name="action_accompagnement">Accompagnement</string>
+    <string name="action_refus">Refus</string>
+    <string name="action_visite">Visite</string>
+    <string-array name="items_entretien">
+        <item>Prise de contact</item>
+        <item>Maintient du lien</item>
+        <item>RDV fixé</item>
+    </string-array>
+    <string-array name="items_action">
+        <item>Orientation</item>
+        <item>Appel d\'urgence</item>
+        <item>Aide matérielle</item>
+        <item>Restauration/Soupe</item>
+    </string-array>
+    <string-array name="items_demarches">
+        <item>Administration</item>
+        <item>Démarche Médicale</item>
+        <item>Démarches Sociale</item>
+    </string-array>
+    <string-array name="items_accompagnement">
+        <item>Accompagnement Médical</item>
+        <item>Nuit</item>
+        <item>Accompagnement Social</item>
+        <item>Administration</item>
+        <item>Domicile</item>
+        <item>Achats</item>
+    </string-array>
+    <string-array name="items_visites">
+        <item>A domicile</item>
+        <item>A l\'hopital</item>
+        <item>A l\'EPSM</item>
+        <item>En lit halte soins santé</item>
+        <item>En cure</item>
+    </string-array>
+    <string-array name="orientation_details">
+        <item>Médicale</item>
+        <item>Nuit</item>
+        <item>Sociale</item>
+        <item>Urgence</item>
+    </string-array>
+    <string-array name="appel_urgence_details">
+        <item>Police</item>
+        <item>SAMU</item>
+        <item>Pompiers</item>
+        <item>115</item>
+    </string-array>
+    <string-array name="administration_details">
+        <item>Banque</item>
+        <item>CAF</item>
+        <item>CMU/CMUC/AME</item>
+        <item>CNI</item>
+        <item>CPAM</item>
+        <item>Impots</item>
+        <item>MDPH</item>
+        <item>Pole Emploi</item>
+        <item>Préfecture</item>
+        <item>Retraite</item>
+        <item>Autres</item>
+    </string-array>
+    <string-array name="demarche_medical_details">
+        <item>Alcoologie</item>
+        <item>Psychiatrie</item>
+        <item>Somatique</item>
+    </string-array>
+    <string-array name="demarche_sociale_details">
+        <item>Contrat tutelle</item>
+        <item>Domiciliation</item>
+        <item>Inscription SIAO</item>
+    </string-array>
+    <string-array name="accompagnement_medical_details">
+        <item>Centre de Santé</item>
+        <item>Cure</item>
+        <item>Hopitaux</item>
+        <item>CMP/EPSM</item>
+        <item>Médecin solidarité Lille</item>
+        <item>Lit halte soins santé</item>
+        <item>Lit accueil médicalisé</item>
+        <item>Autre</item>
+    </string-array>
+    <string-array name="accompagnement_nuit_details">
+        <item>Halte de nuit</item>
+        <item>Urgence/Hiver</item>
+        <item>Place SIAO</item>
+        <item>Autre</item>
+    </string-array>
+    <string-array name="accompagnement_social_details">
+        <item>Accueil de jour</item>
+        <item>Point de repère</item>
+        <item>Tutelle</item>
+        <item>Autre</item>
+    </string-array>
+    <string-array name="accompagnement_achats">
+        <item>Hébergement</item>
+        <item>Logement</item>
+        <item>Cure</item>
+        <item>Hospitalisation</item>
+        <item>Divers</item>
+    </string-array>
 </resources>

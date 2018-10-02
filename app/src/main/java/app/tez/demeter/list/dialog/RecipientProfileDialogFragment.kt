@@ -6,12 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import app.tez.demeter.Fake
@@ -22,6 +20,7 @@ import app.tez.demeter.models.Recipient
 import app.tez.demeter.utils.Utils
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.fragment_recipient_profile_dialog.view.*
 
 /**
@@ -32,10 +31,6 @@ import kotlinx.android.synthetic.main.fragment_recipient_profile_dialog.view.*
 private const val TAG = "RecipientProfileDialog"
 
 class RecipientProfileDialogFragment : DialogFragment() {
-
-    companion object {
-        fun newInstance(): RecipientProfileDialogFragment = RecipientProfileDialogFragment()
-    }
 
     // DESIGN
     private lateinit var rootView: View
@@ -54,6 +49,7 @@ class RecipientProfileDialogFragment : DialogFragment() {
     private lateinit var detailsLayout: LinearLayout
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RecipientProfileDialogAdapter
+    private lateinit var fab: FloatingActionButton
 
     // DATA
     private lateinit var recipient: Recipient
@@ -103,6 +99,7 @@ class RecipientProfileDialogFragment : DialogFragment() {
         this.partnerTextView = rootView.fragment_recipient_profile_meeting_partner
         this.expandButton = rootView.fragment_recipient_profile_expand_button
         this.detailsLayout = rootView.fragment_recipient_profile_details
+        this.fab = rootView.fragment_recipient_profile_fab
     }
 
     private fun configureViews(){
@@ -110,7 +107,7 @@ class RecipientProfileDialogFragment : DialogFragment() {
             in 0..24 ->  R.drawable.bad_mood
             in 25..49 -> R.drawable.quarter_mood
             in 50..74 -> R.drawable.quarter_sec_mood
-            in 57..100 -> R.drawable.top_mood
+            in 57..100 -> R.drawable.quarter_sec_mood
             else -> throw Exception("This mood is not between 0 and 100: ${recipient.mood}")
         }
         context?.let {
@@ -135,6 +132,8 @@ class RecipientProfileDialogFragment : DialogFragment() {
         partnerTextView.text = if(recipient.partner != null) recipient.partner else getString(R.string.aucun)
 
         expandButton.setOnClickListener { Utils.toggleDetails(detailsLayout, expandButton) }
+
+        fab.setOnClickListener { showAddItemDialog() }
     }
 
     private fun configureDismissButton(){
@@ -147,6 +146,16 @@ class RecipientProfileDialogFragment : DialogFragment() {
             this.recyclerView = rootView.fragment_recipient_profile_dialog_rv
             this.recyclerView.adapter = this.adapter
             this.recyclerView.layoutManager = LinearLayoutManager(ctx)
+        }
+    }
+
+    private fun showAddItemDialog(){
+        Log.d(TAG, "showAddItemDialog: click !")
+        val dialog = AddActionItemDialog()
+        fragmentManager?.let {
+            val ft = it.beginTransaction()
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+            dialog.show(ft, AddActionItemDialogTag)
         }
     }
 }

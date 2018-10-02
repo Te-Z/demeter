@@ -19,6 +19,7 @@ class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     private val mood = itemView.fragment_list_item_mood
     private val picture = itemView.fragment_list_item_pic
     private val username = itemView.fragment_list_item_name
+    private val hourOfArrival = itemView.fragment_list_item_hour
     val layout: ConstraintLayout = itemView.fragment_list_item_left
 
     fun updateItem(recipient: Recipient, glide: RequestManager, context: Context){
@@ -27,7 +28,7 @@ class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
                 in 0..24 ->  R.drawable.bad_mood
                 in 25..49 -> R.drawable.quarter_mood
                 in 50..74 -> R.drawable.quarter_sec_mood
-                in 57..100 -> R.drawable.top_mood
+                in 57..100 -> R.drawable.quarter_sec_mood
                 else -> throw Exception("This mood is not between 0 and 100: ${recipient.mood}")
             }
 
@@ -41,5 +42,7 @@ class ListViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
         val name = "${recipient.firstName} ${recipient.lastName.toUpperCase()}"
         username.text = name
+        // TODO:
+        hourOfArrival.text = "Heure d'arrivée"
     }
 }

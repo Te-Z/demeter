@@ -2,4 +2,5 @@
 <resources>
     <dimen name="icon_size">24dp</dimen>
     <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="stats_label">25sp</dimen>
 </resources>

@@ -66,7 +66,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="TextView"
             app:layout_constraintBottom_toBottomOf="@+id/fragment_list_item_pic"
             app:layout_constraintStart_toEndOf="@+id/fragment_list_item_pic" />
     </androidx.constraintlayout.widget.ConstraintLayout>

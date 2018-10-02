@@ -6,4 +6,6 @@
     <color name="cardBackground">#eceff1</color>
     <color name="colorNeutral">#616161</color>
     <color name="colorWhite">#FFF</color>
+    <color name="colorGoodMood">#99D705</color>
+    <color name="colorBadMood">#ff0000</color>
 </resources>
